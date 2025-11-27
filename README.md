@@ -1,6 +1,10 @@
 # Reaper Imbalance
 A Balatro mod that is literally unbalanced.
 
+# Warning and Installation
+I modified the actual source code, which isn't open source I believe. <br>
+If you know how to install this then congrats :>
+
 # Changes
 ## Jokers: 
 ### Changed Cards:
@@ -50,7 +54,7 @@ Removed Cards:
 - Petroglyph gives -1 hand -->
 
 ## Booster Packs
-This doesn't really change the game.
+This doesn't really heavily impact the game.
 - Two normal , one jumbo, and one mega **arcana packs** removed
 - Two normal, one jumbo, and one mega **celestial packs** removed
 - Two normal, one jumbo, and one mega **standard packs** removed
