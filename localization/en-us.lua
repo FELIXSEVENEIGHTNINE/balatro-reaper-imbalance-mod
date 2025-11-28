@@ -1243,7 +1243,7 @@ return {
                 text={
                     "Prevents Death",
                     "if chips scored",
-                    "are at least {C:attention}25%",
+                    "are at least {C:attention}20%",
                     "of required chips",
                     "{S:1.1,C:red,E:2}self destructs{}",
                 },
@@ -3030,7 +3030,7 @@ return {
                 name="Hieroglyph",
                 text={
                     "{C:attention}-#1#{} Ante,",
-                    "{C:blue}-#1#{} hand",
+                    "{C:red}-#1#{} discard",
                     "each round",
                 },
             },
@@ -3171,7 +3171,7 @@ return {
                 name="Petroglyph",
                 text={
                     "{C:attention}-#1#{} Ante,",
-                    "{C:red}-#1#{} discard",
+                    "{C:blue}-#1#{} hand",
                     "each round",
                 },
                 unlock={

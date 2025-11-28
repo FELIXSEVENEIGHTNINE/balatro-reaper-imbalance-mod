@@ -1969,12 +1969,12 @@ function Card:apply_to_run(center)
         G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante-center_table.extra
 
         if center_table.name == 'Hieroglyph' then
-            G.GAME.round_resets.hands = G.GAME.round_resets.hands - center_table.extra
-            ease_hands_played(-center_table.extra)
-        end
-        if center_table.name == 'Petroglyph' then
             G.GAME.round_resets.discards = G.GAME.round_resets.discards - center_table.extra
             ease_discard(-center_table.extra)
+        end
+        if center_table.name == 'Petroglyph' then
+            G.GAME.round_resets.hands = G.GAME.round_resets.hands - center_table.extra
+            ease_hands_played(-center_table.extra)
         end
     end
 end
@@ -3054,7 +3054,7 @@ function Card:calculate_joker(context)
                     end
                 end
                 if self.ability.name == 'Mr. Bones' and context.game_over and 
-                G.GAME.chips/G.GAME.blind.chips >= 0.25 then
+                G.GAME.chips/G.GAME.blind.chips >= 0.20 then
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             G.hand_text_area.blind_chips:juice_up()
@@ -3341,7 +3341,7 @@ function Card:calculate_joker(context)
                                 }
                             else
                                 return {
-                                    h_mult = 2*temp_Mult,
+                                    h_mult = 3*temp_Mult,
                                     card = self,
                                 }
                             end
@@ -3558,13 +3558,13 @@ function Card:calculate_joker(context)
                             end
                         end
                         if reset then
-                            if self.ability.x_mult > 1 then
-                                self.ability.x_mult = 1
-                                return {
-                                    card = self,
-                                    message = localize('k_reset')
-                                }
-                            end
+                            -- if self.ability.x_mult > 1 then
+                            --     self.ability.x_mult = 1
+                            --     return {
+                            --         card = self,
+                            --         message = localize('k_reset')
+                            --     }
+                            -- end
                         else
                             self.ability.x_mult = self.ability.x_mult + self.ability.extra
                         end

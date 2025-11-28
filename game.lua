@@ -664,7 +664,7 @@ function Game:init_item_prototypes()
         },
         j_supernova=        {order = 43,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 5, name = "Supernova", pos = {x=2,y=4}, set = "Joker", effect = "Hand played mult", cost_mult = 1.0, config = {extra = 1}},
         j_ride_the_bus=     {order = 44,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 1, cost = 6, name = "Ride the Bus", pos = {x=1,y=6}, set = "Joker", effect = "", config = {extra = 1}, unlock_condition = {type = 'discard_custom'}},
-        j_space=            {order = 45,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 5, name = "Space Joker", pos = {x=3,y=5}, set = "Joker", effect = "Upgrade Hand chance", cost_mult = 1.0, config = {extra = 4}},
+        j_space=            {order = 45,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 5, name = "Space Joker", pos = {x=3,y=5}, set = "Joker", effect = "Upgrade Hand chance", cost_mult = 1.0, config = {extra = 2}},
         
         j_egg=              {order = 46,  unlocked = true,  discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 4, name = 'Egg', pos = {x = 0, y = 10}, set = 'Joker', config = {extra = 3}},
         j_burglar=          {order = 47,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = 'Burglar', pos = {x = 1, y = 10}, set = 'Joker', config = {extra = 3}},
@@ -700,7 +700,7 @@ function Game:init_item_prototypes()
             perishable_compat = false, 
             eternal_compat = true, 
             rarity = 2, 
-            cost = 7, name = "Madness", pos = {x=8,y=11}, set = "Joker", cost_mult = 1.0, config = {extra = 1.5}},
+            cost = 7, name = "Madness", pos = {x=8,y=11}, set = "Joker", cost_mult = 1.0, config = {extra = 0.5}},
         j_square = {
             order = 65, 
              unlocked = true, 
@@ -728,7 +728,17 @@ function Game:init_item_prototypes()
             eternal_compat = true, 
             rarity = 2, cost = 7, name = "Cloud 9",set = "Joker", config = {extra = 2}, pos = {x=7,y=12}},
         j_rocket=           {order = 74,  unlocked = true, discovered = false, blueprint_compat = false, perishable_compat = false, eternal_compat = true, rarity = 2, cost = 6, name = "Rocket",set = "Joker", config = {extra = {dollars = 1, increase = 2}}, pos = {x=8,y=12}},
-        j_obelisk=          {order = 75,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 3, cost = 8, name = "Obelisk",set = "Joker", config = {extra = 0.2, Xmult = 1}, pos = {x=9,y=12}},
+        j_obelisk = {
+            order = 75,  
+            unlocked = true, 
+            discovered = false, 
+            blueprint_compat = true, 
+            perishable_compat = false, 
+            eternal_compat = true, 
+            rarity = 3, 
+            cost = 8, 
+            name = "Obelisk",
+            set = "Joker", config = {extra = 0.2, Xmult = 1}, pos = {x=9,y=12}},
 
         j_midas_mask=       {order = 76,  unlocked = true,  discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 7, name = "Midas Mask",set = "Joker", config = {}, pos = {x=0,y=13}},
         -- j_luchador=         {order = 77,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 2, cost = 5, name = "Luchador",set = "Joker", config = {}, pos = {x=1,y=13}},
@@ -764,7 +774,7 @@ function Game:init_item_prototypes()
         j_ancient=          {order = 99,   unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 8, name = "Ancient Joker",set = "Joker", config = {extra = 1.5}, pos = {x=7,y=15}},
         j_ramen=            {order = 100,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 2, cost = 6, name = "Ramen",set = "Joker", config = {Xmult = 2, extra = 0.01}, pos = {x=2,y=15}},
         j_walkie_talkie=    {order = 101,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 4, name = "Walkie Talkie",set = "Joker", config = {extra = {chips = 10, mult = 4}}, pos = {x=8,y=15}},
-        j_selzer=           {order = 102,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 2, cost = 6, name = "Seltzer",set = "Joker", config = {extra = 10}, pos = {x=3,y=15}},
+        j_selzer=           {order = 102,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 2, cost = 6, name = "Seltzer",set = "Joker", config = {extra = 5}, pos = {x=3,y=15}},
         j_castle=           {order = 103,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 2, cost = 6, name = "Castle",set = "Joker", config = {extra = {chips = 0, chip_mod = 8}}, pos = {x=9,y=15}},
         j_smiley=           {order = 104,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 4, name = "Smiley Face",set = "Joker", config = {extra = 5}, pos = {x=6,y=15}},
         j_campfire=         {order = 105,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 9, name = "Campfire",set = "Joker", config = {extra = 0.25}, pos = {x=5,y=15}},
@@ -777,7 +787,7 @@ function Game:init_item_prototypes()
         j_troubadour=       {order = 111,  unlocked = false, discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Troubadour", pos = {x=0,y=2}, set = "Joker", effect = "Hand Size, Plays", cost_mult = 1.0, config = {extra = {h_size = 4, h_plays = -2}}, unlock_condition = {type = 'round_win', extra = 5}},
         j_certificate=      {order = 112,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Certificate", pos = {x=8,y=8}, set = "Joker", effect = "", config = {}, unlock_condition = {type = 'double_gold'}},
         j_smeared=          {order = 113,  unlocked = false, discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 7, name = "Smeared Joker", pos = {x=4,y=6}, set = "Joker", effect = "", config = {}, unlock_condition = {type = 'modify_deck', extra = {count = 3, enhancement = 'Wild Card', e_key = 'm_wild'}}},
-        j_throwback=        {order = 114,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Throwback", pos = {x=5,y=7}, set = "Joker", effect = "", config = {extra = 0.25}, unlock_condition = {type = 'continue_game'}},        
+        j_throwback=        {order = 114,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Throwback", pos = {x=5,y=7}, set = "Joker", effect = "", config = {extra = 0.5}, unlock_condition = {type = 'continue_game'}},        
         j_hanging_chad=     {order = 115,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 4, name = "Hanging Chad", pos = {x=9,y=6}, set = "Joker", effect = "", config = {extra = 2}, unlock_condition = {type = 'round_win', extra = 'High Card'}},
         
         j_rough_gem=        {order = 116,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 7, name = "Rough Gem", pos = {x=9,y=7}, set = "Joker", effect = "", config = {extra = 4}, unlock_condition = {type = 'modify_deck', extra = {count = 30, suit = 'Diamonds'}}},
@@ -788,7 +798,7 @@ function Game:init_item_prototypes()
         j_glass=            {order = 120,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 2, cost = 6, name = "Glass Joker", pos = {x=1,y=3}, set = "Joker", effect = "Glass Card", cost_mult = 1.0, config = {extra = 0.75, Xmult = 1}, unlock_condition = {type = 'modify_deck', extra = {count = 5, enhancement = 'Glass Card', e_key = 'm_glass'}}, enhancement_gate = 'm_glass'},
 
         j_ring_master=      {order = 121,  unlocked = false, discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 5, name = "Showman", pos = {x=6,y=5}, set = "Joker", effect = "", config = {}, unlock_condition = {type = 'ante_up', ante = 4}},
-        j_flower_pot=       {order = 122,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Flower Pot", pos = {x=0,y=6}, set = "Joker", effect = "", config = {extra = 3}, unlock_condition = {type = 'ante_up', ante = 8}},
+        j_flower_pot=       {order = 122,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Flower Pot", pos = {x=0,y=6}, set = "Joker", effect = "", config = {extra = 4}, unlock_condition = {type = 'ante_up', ante = 8}},
         j_blueprint=        {order = 123,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 10,name = "Blueprint", pos = {x=0,y=3}, set = "Joker", effect = "Copycat", cost_mult = 1.0, config = {},unlock_condition = {type = 'win_custom'}},
         j_wee=              {order = 124,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 3, cost = 8, name = "Wee Joker", pos = {x=0,y=0}, set = "Joker", effect = "", config = {extra = {chips = 0, chip_mod = 8}}, unlock_condition = {type = 'win', n_rounds = 18}},
         j_merry_andy=       {order = 125,  unlocked = false, discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 7, name = "Merry Andy", pos = {x=8,y=0}, set = "Joker", effect = "", cost_mult = 1.0, config = {d_size = 3, h_size = -1}, unlock_condition = {type = 'win', n_rounds = 12}},
@@ -838,11 +848,10 @@ function Game:init_item_prototypes()
                 hidden = true
             }
         },
-        j_triboulet=        {order = 147,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Triboulet", pos = {x=4,y=8}, soul_pos = {x=4, y=9}, set = "Joker", effect = "", config = {extra = 2}, unlock_condition = {type = '', extra = '', hidden = true}},
-        j_yorick=           {order = 148,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Yorick", pos = {x=5,y=8}, soul_pos = {x=5, y=9}, set = "Joker", effect = "", config = {extra = {xmult = 1, discards = 23}}, unlock_condition = {type = '', extra = '', hidden = true}},
+        j_triboulet=        {order = 147,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Triboulet", pos = {x=4,y=8}, soul_pos = {x=4, y=9}, set = "Joker", effect = "", config = {extra = 3}, unlock_condition = {type = '', extra = '', hidden = true}},
+        j_yorick=           {order = 148,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Yorick", pos = {x=5,y=8}, soul_pos = {x=5, y=9}, set = "Joker", effect = "", config = {extra = {xmult = 0.25, discards = 18}}, unlock_condition = {type = '', extra = '', hidden = true}},
         j_chicot=           {order = 149,  unlocked = false, discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Chicot", pos = {x=6,y=8}, soul_pos = {x=6, y=9}, set = "Joker", effect = "", config = {}, unlock_condition = {type = '', extra = '', hidden = true}},
         j_perkeo=           {order = 150,  unlocked = false, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 4, cost = 20, name = "Perkeo", pos = {x=7,y=8}, soul_pos = {x=7, y=9}, set = "Joker", effect = "", config = {}, unlock_condition = {type = '', extra = '', hidden = true}},
-
 
 
         --All Consumeables
@@ -958,17 +967,17 @@ function Game:init_item_prototypes()
         b_red=              {name = "Red Deck",         stake = 1, unlocked = true,order = 1, pos =   {x=0,y=0}, set = "Back", config = {discards = 1}, discovered = true},
         b_blue=             {name = "Blue Deck",        stake = 1, unlocked = false,order = 2, pos =  {x=0,y=2}, set = "Back", config = {hands = 1}, unlock_condition = {type = 'discover_amount', amount = 20}},
         b_yellow=           {name = "Yellow Deck",      stake = 1, unlocked = false,order = 3, pos =  {x=1,y=2}, set = "Back", config = {dollars = 10}, unlock_condition = {type = 'discover_amount', amount = 50}},
-        b_green=            {name = "Green Deck",       stake = 1, unlocked = false,order = 4, pos =  {x=2,y=2}, set = "Back", config = {extra_hand_bonus = 2, extra_discard_bonus = 1, no_interest = true}, unlock_condition = {type = 'discover_amount', amount = 75}},
+        b_green=            {name = "Green Deck",       stake = 1, unlocked = false,order = 4, pos =  {x=2,y=2}, set = "Back", config = {extra_hand_bonus = 2, extra_discard_bonus = 3, no_interest = true}, unlock_condition = {type = 'discover_amount', amount = 75}},
         b_black=            {name = "Black Deck",       stake = 1, unlocked = false,order = 5, pos =  {x=3,y=2}, set = "Back", config = {hands = -1, joker_slot = 1}, unlock_condition = {type = 'discover_amount', amount = 100}},
         b_magic=            {name = "Magic Deck",       stake = 1, unlocked = false,order = 6, pos =  {x=0,y=3}, set = "Back", config = {voucher = 'v_crystal_ball', consumables = {'c_fool', 'c_fool'}}, unlock_condition = {type = 'win_deck', deck = 'b_red'}},
-        b_nebula=           {name = "Nebula Deck",      stake = 1, unlocked = false,order = 7, pos =  {x=3,y=0}, set = "Back", config = {voucher = 'v_telescope', consumable_slot = -1}, unlock_condition = {type = 'win_deck', deck = 'b_blue'}},
+        -- b_nebula=           {name = "Nebula Deck",      stake = 1, unlocked = false,order = 7, pos =  {x=3,y=0}, set = "Back", config = {voucher = 'v_telescope', consumable_slot = -1}, unlock_condition = {type = 'win_deck', deck = 'b_blue'}},
         b_ghost=            {name = "Ghost Deck",       stake = 1, unlocked = false,order = 8, pos =  {x=6,y=2}, set = "Back", config = {spectral_rate = 2, consumables = {'c_hex'}}, unlock_condition = {type = 'win_deck', deck = 'b_yellow'}},
         b_abandoned=        {name = "Abandoned Deck",   stake = 1, unlocked = false,order = 9, pos =  {x=3,y=3}, set = "Back", config = {remove_faces = true}, unlock_condition = {type = 'win_deck', deck = 'b_green'}},
         b_checkered=        {name = "Checkered Deck",   stake = 1, unlocked = false,order = 10,pos =  {x=1,y=3}, set = "Back", config = {}, unlock_condition = {type = 'win_deck', deck = 'b_black'}},
         b_zodiac=           {name = "Zodiac Deck",      stake = 1, unlocked = false,order = 11, pos = {x=3,y=4}, set = "Back", config = {vouchers = {'v_tarot_merchant','v_planet_merchant', 'v_overstock_norm'}}, unlock_condition = {type = 'win_stake', stake = 2}},
-        b_painted=          {name = "Painted Deck",     stake = 1, unlocked = false,order = 12, pos = {x=4,y=3}, set = "Back", config = {hand_size = 2, joker_slot = -1}, unlock_condition = {type = 'win_stake', stake=3}},
+        b_painted=          {name = "Painted Deck",     stake = 1, unlocked = false,order = 12, pos = {x=4,y=3}, set = "Back", config = {hand_size = 12, joker_slot = -2}, unlock_condition = {type = 'win_stake', stake=3}},
         b_anaglyph=         {name = "Anaglyph Deck",    stake = 1, unlocked = false,order = 13, pos = {x=2,y=4}, set = "Back", config = {}, unlock_condition = {type = 'win_stake', stake = 4}},
-        b_plasma=           {name = "Plasma Deck",      stake = 1, unlocked = false,order = 14, pos = {x=4,y=2}, set = "Back", config = {ante_scaling = 2}, unlock_condition = {type = 'win_stake', stake=5}},
+        b_plasma=           {name = "Plasma Deck",      stake = 1, unlocked = false,order = 14, pos = {x=4,y=2}, set = "Back", config = {ante_scaling = 3}, unlock_condition = {type = 'win_stake', stake=5}},
         b_erratic=          {name = "Erratic Deck",     stake = 1, unlocked = false,order = 15, pos = {x=2,y=3}, set = "Back", config = {randomize_rank_suit = true}, unlock_condition = {type = 'win_stake', stake=7}},
     
         b_challenge=        {name = "Challenge Deck",   stake = 1, unlocked = true,order = 16, pos = {x=0,y=4}, set = "Back", config = {}, omit = true}, 
