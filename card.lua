@@ -251,8 +251,8 @@ function Card:set_ability(center, initial, delay_sprites)
     end
 
     if center.name == "Wee Joker" and (center.discovered or self.bypass_discovery_center) then 
-        H = H*0.7
-        W = W*0.7
+        H = H*0.75
+        W = W*0.75
         self.T.h = H
         self.T.w = W
     end
@@ -285,6 +285,7 @@ function Card:set_ability(center, initial, delay_sprites)
         p_dollars = center.config.p_dollars or 0,
         t_mult = center.config.t_mult or 0,
         t_chips = center.config.t_chips or 0,
+        x_chips = center.config.Xchips or 1,
         x_mult = center.config.Xmult or 1,
         h_size = center.config.h_size or 0,
         d_size = center.config.d_size or 0,
@@ -599,7 +600,7 @@ function Card:add_to_deck(from_debuff)
             card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled')})
         end
         if self.ability.name == 'Chaos the Clown' then
-            G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 1
+            G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls + 4
             calculate_reroll_cost(true)
         end
         if self.ability.name == 'Turtle Bean' then
@@ -657,7 +658,10 @@ function Card:remove_from_deck(from_debuff)
         end
         if self.ability.name == 'Chaos the Clown' then
             G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 1
-            calculate_reroll_cost(true)
+
+            -- if G.GAME.current_round.free_rerolls <= 0 then
+            --     calculate_reroll_cost(true)
+            -- end
         end
         if self.ability.name == 'Turtle Bean' then
             G.hand:change_size(-self.ability.extra.h_size)
@@ -741,10 +745,11 @@ function Card:generate_UIBox_ability_table()
                 localize(self.ability.type, 'poker_hands')
             }
 
-        elseif self.ability.name == 'Sly Joker' or self.ability.name == 'Wily Joker' or
-        self.ability.name == 'Clever Joker' or self.ability.name == 'Devious Joker'  or 
-        self.ability.name == 'Crafty Joker' then 
-            loc_vars = {self.ability.t_chips, localize(self.ability.type, 'poker_hands')}
+        elseif self.ability.name == 'Sly Joker' or self.ability.name == 'Wily Joker' or self.ability.name == 'Clever Joker' or self.ability.name == 'Devious Joker' or self.ability.name == 'Crafty Joker' then 
+            loc_vars = {
+                self.ability.t_chips, 
+                localize(self.ability.type, 'poker_hands')
+            }
         elseif self.ability.name == 'Half Joker' then loc_vars = {self.ability.extra.mult, self.ability.extra.size}
         elseif self.ability.name == 'Fortune Teller' then loc_vars = {self.ability.extra, (G.GAME.consumeable_usage_total and G.GAME.consumeable_usage_total.tarot or 0)}
         elseif self.ability.name == 'Steel Joker' then loc_vars = {self.ability.extra, 1 + self.ability.extra*(self.ability.steel_tally or 0)}
@@ -804,7 +809,7 @@ function Card:generate_UIBox_ability_table()
         elseif self.ability.name == 'Ride the Bus' then loc_vars = {self.ability.extra, self.ability.mult}
         elseif self.ability.name == 'Egg' then loc_vars = {self.ability.extra}
         elseif self.ability.name == 'Burglar' then loc_vars = {self.ability.extra}
-        elseif self.ability.name == 'Blackboard' then loc_vars = {self.ability.extra, localize('Spades', 'suits_plural'), localize('Clubs', 'suits_plural')}
+        elseif self.ability.name == 'Blackboard' then loc_vars = {self.ability.extra, localize('Spades', 'suits_plural')}
         elseif self.ability.name == 'Runner' then loc_vars = {self.ability.extra.chips, self.ability.extra.chip_mod}
         elseif self.ability.name == 'Ice Cream' then loc_vars = {self.ability.extra.chips, self.ability.extra.chip_mod}
         elseif self.ability.name == 'DNA' then loc_vars = {self.ability.extra}
@@ -843,12 +848,23 @@ function Card:generate_UIBox_ability_table()
         elseif self.ability.name == 'Flower Pot' then loc_vars = {self.ability.extra}
         elseif self.ability.name == 'Wee Joker' then loc_vars = {self.ability.extra.chips, self.ability.extra.chip_mod}
         elseif self.ability.name == 'Merry Andy' then loc_vars = {self.ability.d_size, self.ability.h_size}
-        elseif self.ability.name == 'The Idol' then loc_vars = {self.ability.extra, localize(G.GAME.current_round.idol_card.rank, 'ranks'), localize(G.GAME.current_round.idol_card.suit, 'suits_plural'), colours = {G.C.SUITS[G.GAME.current_round.idol_card.suit]}}
+        elseif self.ability.name == 'The Idol' then 
+            loc_vars = {
+                self.ability.extra, 
+                localize(G.GAME.current_round.idol_card.rank, 'ranks'), 
+                localize(G.GAME.current_round.idol_card.suit, 'suits_plural'), 
+                colours = {
+                    G.C.SUITS[G.GAME.current_round.idol_card.suit]
+                }
+            }
         elseif self.ability.name == 'Seeing Double' then loc_vars = {self.ability.extra}
         elseif self.ability.name == 'Matador' then loc_vars = {self.ability.extra}
         elseif self.ability.name == 'Hit the Road' then loc_vars = {self.ability.extra, self.ability.x_mult}
-        elseif self.ability.name == 'The Duo' or self.ability.name == 'The Trio'
-            or self.ability.name == 'The Family' or self.ability.name == 'The Order' or self.ability.name == 'The Tribe' then loc_vars = {self.ability.x_mult, localize(self.ability.type, 'poker_hands')}
+        elseif self.ability.name == 'The Duo' or self.ability.name == 'The Trio' or self.ability.name == 'The Family' or self.ability.name == 'The Order' or self.ability.name == 'The Tribe' then 
+            loc_vars = {
+                self.ability.x_mult, 
+                localize(self.ability.type, 'poker_hands')
+            }
         
         elseif self.ability.name == 'Cavendish' then loc_vars = {self.ability.extra.Xmult, ''..(G.GAME and G.GAME.probabilities.normal or 1), self.ability.extra.odds}
         elseif self.ability.name == 'Card Sharp' then loc_vars = {self.ability.extra.Xmult}
@@ -897,7 +913,16 @@ function Card:generate_UIBox_ability_table()
         elseif self.ability.name == 'Flash Card' then loc_vars = {self.ability.extra, self.ability.mult}
         elseif self.ability.name == 'Popcorn' then loc_vars = {self.ability.mult, self.ability.extra}
         elseif self.ability.name == 'Ramen' then loc_vars = {self.ability.x_mult, self.ability.extra}
-        elseif self.ability.name == 'Ancient Joker' then loc_vars = {self.ability.extra, localize(G.GAME.current_round.ancient_card.suit, 'suits_singular'), colours = {G.C.SUITS[G.GAME.current_round.ancient_card.suit]}}
+        elseif self.ability.name == 'Ancient Joker' then 
+            loc_vars = {
+                self.ability.extra, 
+                localize(G.GAME.current_round.ancient_card.suit, 'suits_plural'), 
+                -- localize(G.GAME.current_round.idol_card.suit, 'suits_plural'), 
+                colours = {
+                    G.C.SUITS[G.GAME.current_round.ancient_card.suit]
+                    -- G.C.SUITS[G.GAME.current_round.idol_card.suit]
+                }
+            }
         elseif self.ability.name == 'Walkie Talkie' then loc_vars = {self.ability.extra.chips, self.ability.extra.mult}
         elseif self.ability.name == 'Seltzer' then loc_vars = {self.ability.extra}
         elseif self.ability.name == 'Castle' then loc_vars = {self.ability.extra.chip_mod, localize(G.GAME.current_round.castle_card.suit, 'suits_singular'), self.ability.extra.chips, colours = {G.C.SUITS[G.GAME.current_round.castle_card.suit]}}
@@ -2298,28 +2323,41 @@ function Card:calculate_perishable()
 end
 
 function Card:calculate_joker(context)
-    if self.debuff then return nil end
+    if self.debuff then 
+        return nil 
+    end
+    
     if self.ability.set == "Planet" and not self.debuff then
-        if context.joker_main then
-            if G.GAME.used_vouchers.v_observatory and self.ability.consumeable.hand_type == context.scoring_name then
-                return {
-                    message = localize{type = 'variable', key = 'a_xmult', vars = {G.P_CENTERS.v_observatory.config.extra}},
-                    Xmult_mod = G.P_CENTERS.v_observatory.config.extra
-                }
-            end
+        if not context.joker_main then
+            return nil
+        end
+
+
+        if G.GAME.used_vouchers.v_observatory and self.ability.consumeable.hand_type == context.scoring_name then
+            return {
+                message = localize{type = 'variable', key = 'a_xmult', vars = {G.P_CENTERS.v_observatory.config.extra}},
+                Xmult_mod = G.P_CENTERS.v_observatory.config.extra
+            }
         end
     end
+
     if self.ability.set == "Joker" and not self.debuff then
         if self.ability.name == "Blueprint" then
             local other_joker = nil
             for i = 1, #G.jokers.cards do
                 if G.jokers.cards[i] == self then other_joker = G.jokers.cards[i+1] end
             end
+
             if other_joker and other_joker ~= self then
                 context.blueprint = (context.blueprint and (context.blueprint + 1)) or 1
                 context.blueprint_card = context.blueprint_card or self
-                if context.blueprint > #G.jokers.cards + 1 then return end
+                
+                if context.blueprint > #G.jokers.cards + 1 then 
+                    return 
+                end
+                
                 local other_joker_ret = other_joker:calculate_joker(context)
+                
                 if other_joker_ret then 
                     other_joker_ret.card = context.blueprint_card or self
                     other_joker_ret.colour = G.C.BLUE
@@ -2327,6 +2365,7 @@ function Card:calculate_joker(context)
                 end
             end
         end
+
         if self.ability.name == "Brainstorm" then
             local other_joker = G.jokers.cards[1]
             if other_joker and other_joker ~= self then
@@ -2341,6 +2380,7 @@ function Card:calculate_joker(context)
                 end
             end
         end
+
         if context.open_booster then
             if self.ability.name == 'Hallucination' and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                 if pseudorandom('halu'..G.GAME.round_resets.ante) < G.GAME.probabilities.normal/self.ability.extra then
@@ -2417,6 +2457,38 @@ function Card:calculate_joker(context)
                         card_eval_status_text(self, 'extra', nil, nil, nil, {message = localize{type = 'variable', key = 'a_mult', vars = {self.ability.mult}}, colour = G.C.MULT})
                     return true
                 end)}))
+            end
+
+            if self.ability.name == "Chaos the Clown" and not context.blueprint then
+                if G.GAME.current_round.free_rerolls > 0 then
+                    G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 1
+                    -- calculate_reroll_cost(true)
+                    if G.GAME.current_round.free_rerolls <= 0 then
+                        calculate_reroll_cost(true)
+                    end
+                else
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            play_sound('tarot1')
+                            self.T.r = -0.2
+                            self:juice_up(0.3, 0.4)
+                            self.states.drag.is = true
+                            self.children.center.pinch.x = true
+                            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.3, blockable = false,
+                                func = function()
+                                        G.jokers:remove_card(self)
+                                        self:remove()
+                                        self = nil
+                                    return true; end})) 
+                            return true
+                        end
+                    })) 
+                    return {
+                        -- message = localize('k_used_ex'),
+                        message = localize('k_eaten_ex'),
+                        colour = G.C.RED
+                    }
+                end
             end
         elseif context.ending_shop then
             if self.ability.name == 'Perkeo' then
@@ -2609,7 +2681,8 @@ function Card:calculate_joker(context)
                 playing_card_joker_effects({true})
             end
             return
-        elseif context.destroying_card and not context.blueprint then
+        -- elseif context.destroying_card and not context.blueprint then
+        elseif context.destroying_card then
             if self.ability.name == 'Sixth Sense' and #context.full_hand == 1 and context.full_hand[1]:get_id() == 6 and G.GAME.current_round.hands_played == 0 then
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -2857,8 +2930,9 @@ function Card:calculate_joker(context)
                 self.ability.mult = math.max(0, self.ability.mult - self.ability.extra.discard_sub)
                 if self.ability.mult ~= prev_mult then 
                     return {
-                        message = localize{type='variable',key='a_mult_minus',vars={self.ability.extra.discard_sub}},
-                        colour = G.C.RED,
+                        -- message = localize{type='variable',key='a_mult_minus',vars={self.ability.extra.discard_sub}},
+                        message = localize('k_reset'),
+                        -- colour = G.C.RED,
                         card = self
                     }
                 end
@@ -2895,13 +2969,13 @@ function Card:calculate_joker(context)
                     end
                 end
             elseif not context.blueprint then
-                if self.ability.name == 'Campfire' and G.GAME.blind.boss and self.ability.x_mult > 1 then
-                    self.ability.x_mult = 1
-                    return {
-                        message = localize('k_reset'),
-                        colour = G.C.RED
-                    }
-                end
+                -- if self.ability.name == 'Campfire' and G.GAME.blind.boss and self.ability.x_mult > 1 then
+                --     self.ability.x_mult = 1
+                --     return {
+                --         message = localize('k_reset'),
+                --         colour = G.C.RED
+                --     }
+                -- end
                 if self.ability.name == 'Rocket' and G.GAME.blind.boss then
                     self.ability.extra.dollars = self.ability.extra.dollars + self.ability.extra.increase
                     return {
@@ -3678,6 +3752,12 @@ function Card:calculate_joker(context)
                                 chip_mod = self.ability.t_chips
                             }
                         end
+                        -- if self.ability.x_chips > 0 and next(context.poker_hands[self.ability.type]) then
+                        --     return {
+                        --         message = localize{type='variable',key='a_chips',vars={self.ability.x_chips}},
+                        --         chip_mod = self.ability.x_chips
+                        --     }
+                        -- end
                         if self.ability.name == 'Half Joker' and #context.full_hand <= self.ability.extra.size then
                             return {
                                 message = localize{type='variable',key='a_mult',vars={self.ability.extra.mult}},
@@ -3961,7 +4041,7 @@ function Card:calculate_joker(context)
                             local black_suits, all_cards = 0, 0
                             for k, v in ipairs(G.hand.cards) do
                                 all_cards = all_cards + 1
-                                if v:is_suit('Clubs', nil, true) or v:is_suit('Spades', nil, true) then
+                                if v:is_suit('Spades', nil, true) then
                                     black_suits = black_suits + 1
                                 end
                             end

@@ -84,9 +84,13 @@ return {
             b_nebula={
                 name="Nebula Deck",
                 text={
-                    "Start run with the",
-                    "{C:planet,T:v_telescope}#1#{} voucher",
-                    "",
+                    -- "Start run with the",
+                    -- "{C:planet,T:v_telescope}#1#{} voucher",
+                    -- "",
+                    -- "{C:red}#2#{} consumable slot",
+                    "Start run with",
+                    "{C:planet,T:v_telescope}#1#{}",
+                    "and {C:planet,T:v_observatory}Observatory{}",
                     "{C:red}#2#{} consumable slot",
                 },
             },
@@ -522,7 +526,7 @@ return {
                 text={
                     "{X:red,C:white} X#1# {} Mult if all",
                     "cards held in hand",
-                    "are {C:spades}#2#{} or {C:clubs}#3#{}",
+                    "are {C:spades}#2#{}",
                 },
             },
             j_bloodstone={
@@ -612,8 +616,7 @@ return {
             j_business={
                 name="Business Card",
                 text={
-                    "Played {C:attention}face{} cards have",
-                    "a {C:green}#1# in #2#{} chance to",
+                    "Played {C:attention}face{} cards",
                     "give {C:money}$2{} when scored",
                 },
             },
@@ -633,8 +636,7 @@ return {
                 name="Campfire",
                 text={
                     "This Joker gains {X:mult,C:white}X#1#{} Mult",
-                    "for each card {C:attention}sold{}, resets",
-                    "when {C:attention}Boss Blind{} is defeated",
+                    "for each card {C:attention}sold{}",
                     "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
                 },
             },
@@ -680,9 +682,9 @@ return {
                 name="Ceremonial Dagger",
                 text={
                     "When {C:attention}Blind{} is selected,",
-                    "destroy Joker to the right",
-                    "and permanently add {C:attention}double",
-                    "its sell value to this {C:red}Mult",
+                    "destroy the Joker to the right,",
+                    "gain {C:red}Mult{} by {C:attention}doubling{}",
+                    "the sell value of the destroyed Joker",
                     "{C:inactive}(Currently {C:mult}+#1#{C:inactive} Mult)",
                 },
             },
@@ -703,8 +705,10 @@ return {
             j_chaos={
                 name="Chaos the Clown",
                 text={
-                    "{C:attention}#1#{} free {C:green}Reroll",
-                    "per shop",
+                    "{C:attention}#1#{} free {C:green}Rerolls",
+                    "per shop, {C:red}Destroys{} itself",
+                    "after using all rerolls",
+                    -- "{C:inactive}(Currently #1#{C:green} rerolls{})"
                 },
             },
             j_chicot={
@@ -989,7 +993,8 @@ return {
                 name="Green Joker",
                 text={
                     "{C:mult}+#1#{} Mult per hand played",
-                    "{C:mult}-#2#{} Mult per discard",
+                    -- "{C:mult}-#2#{} Mult per discard",
+                    "{C:yellow}Resets{} when using a discard",
                     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
                 },
             },
@@ -1032,7 +1037,7 @@ return {
                 text={
                     "Retrigger {C:attention}first{} played",
                     "card used in scoring",
-                    "{C:attention}#1#{} additional times",
+                    -- "{C:attention}#1#{} additional times",
                 },
                 unlock={
                     "Beat a Boss Blind",
@@ -1541,6 +1546,7 @@ return {
             j_sly={
                 name="Sly Joker",
                 text={
+                    -- "{C:chips}x#1#{} Chips if played",
                     "{C:chips}+#1#{} Chips if played",
                     "hand contains",
                     "a {C:attention}#2#",
@@ -2553,15 +2559,15 @@ return {
             stake_blue={
                 name="Blue Stake",
                 text={
-                    "{C:red}-1{} Discard",
+                    "Shop can have {C:attention}Perishable{} Jokers",
+                    "{C:inactive,s:0.8}(Debuffed after 5 Rounds)",
                     "{s:0.8}Applies all previous Stakes",
                 },
             },
             stake_gold={
                 name="Gold Stake",
                 text={
-                    "Shop can have {C:attention}Rental{} Jokers",
-                    "{C:inactive,s:0.8}(Costs {C:money,s:0.8}$3{C:inactive,s:0.8} per round)",
+                    "{C:red}-1{} Discard",
                     "{s:0.8}Applies all previous Stakes",
                 },
             },
@@ -2576,16 +2582,16 @@ return {
             stake_orange={
                 name="Orange Stake",
                 text={
-                    "Shop can have {C:attention}Perishable{} Jokers",
-                    "{C:inactive,s:0.8}(Debuffed after 5 Rounds)",
+                    "Required score scales",
+                    "faster for each {C:attention}Ante",
                     "{s:0.8}Applies all previous Stakes",
                 },
             },
             stake_purple={
                 name="Purple Stake",
                 text={
-                    "Required score scales",
-                    "faster for each {C:attention}Ante",
+                    "Shop can have {C:attention}Rental{} Jokers",
+                    "{C:inactive,s:0.8}(Costs {C:money,s:0.8}$3{C:inactive,s:0.8} per round)",
                     "{s:0.8}Applies all previous Stakes",
                 },
             },
@@ -3651,6 +3657,7 @@ return {
             k_unknown="?????",
             k_unlocked_ex="Unlocked!",
             k_upgrade_ex="Upgrade!",
+            k_used_ex = "Used!",
             k_val_up="Value Up!",
             k_view="View",
             k_voucher="Voucher",
@@ -3699,11 +3706,11 @@ return {
                 "Can't be sold",
                 "or destroyed",
             },
-            ml_gold_seal_desc={
-                "Gold Seal",
-                "returns to hand",
-                "when played",
-            },
+            -- ml_gold_seal_desc={
+            --     "Gold Seal",
+            --     "returns to hand",
+            --     "when played",
+            -- },
             ml_offline_message={
                 "This device is offline.",
                 "The current save may be out of date.",
