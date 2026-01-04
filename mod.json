@@ -1,0 +1,18 @@
+{
+    "id": "ReaperImbalance",
+    "name": "Reaper Imbalance",
+    "display_name": "Reaper Imbalance",
+    "author": ["ReaperofSouls"],
+    "description": "holy",
+    "prefix": "ri",
+    "main_file": "main.lua",
+    "priority": 0,
+    "badge_colour": "2596be",
+    "badge_text_colour": "ffffff",
+    "version": "0.0.1",
+    "dependencies": [
+        "Steamodded (>=1.*)",
+        "Lovely (>=0.6)"
+    ]
+
+}
