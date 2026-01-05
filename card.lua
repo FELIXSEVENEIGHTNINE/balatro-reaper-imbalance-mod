@@ -658,10 +658,6 @@ function Card:remove_from_deck(from_debuff)
         end
         if self.ability.name == 'Chaos the Clown' then
             G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 1
-
-            -- if G.GAME.current_round.free_rerolls <= 0 then
-            --     calculate_reroll_cost(true)
-            -- end
         end
         if self.ability.name == 'Turtle Bean' then
             G.hand:change_size(-self.ability.extra.h_size)
@@ -2463,7 +2459,7 @@ function Card:calculate_joker(context)
                 if G.GAME.current_round.free_rerolls > 0 then
                     G.GAME.current_round.free_rerolls = G.GAME.current_round.free_rerolls - 1
                     -- calculate_reroll_cost(true)
-                    if G.GAME.current_round.free_rerolls <= 0 then
+                    if G.GAME.current_round.free_rerolls <= -1 then
                         calculate_reroll_cost(true)
                     end
                 else

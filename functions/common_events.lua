@@ -315,6 +315,7 @@ function ease_background_colour_blind(state, blind_override)
     --For the blind related colours
     if state == G.STATES.SHOP then 
         ease_colour(G.C.DYN_UI.MAIN, mix_colours(G.C.RED, G.C.BLACK, 0.9))
+        -- ease_colour(G.C.DYN_UI.MAIN, mix_colours(G.C.SECONDARY_SET.Planet, G.C.BLACK, 0.9))
     elseif state == G.STATES.TAROT_PACK then
         ease_colour(G.C.DYN_UI.MAIN, mix_colours(G.C.WHITE, G.C.BLACK, 0.9))
     elseif state == G.STATES.SPECTRAL_PACK then
@@ -343,6 +344,7 @@ function ease_background_colour_blind(state, blind_override)
         ease_background_colour{new_colour = G.C.BLIND.won, contrast = 1}
     elseif blindname == 'Small Blind' or blindname == 'Big Blind' or blindname == '' then
         ease_background_colour{new_colour = G.C.BLIND['Small'], contrast = 1}
+        -- ease_background_colour{new_colour = G.C.BLACK, contrast = 3}
     else
 
         local boss_col = G.C.BLACK

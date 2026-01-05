@@ -21,6 +21,8 @@ I'll will make a SteamModded version of this so it can be easily installed.
 <code style="color: Yellow">(x)</code> Mechanic Changed <br>
 <code style="color: Red">(-)</code> Nerf <br>
 
+- Music has been changed
+
 <!-- - ## Seals: -->
 
 - ## Tags:
@@ -64,49 +66,63 @@ I'll will make a SteamModded version of this so it can be easily installed.
     #### Re-localized some of the Jokers.
     - ### Changed Jokers:
         
-        - <code style="color: GreenYellow">(+)</code> **Joker** 
+        - <code style="color: GreenYellow">(+)</code> 1 - **Joker** 
             - from +4 mult to +8 mult
-        - <code style="color: GreenYellow">(+)</code> **Jolly Joker**, **Mad Joker**
-            - from +2 mult to +4 mult
-        - <code style="color: GreenYellow">(+)</code> **Zany Joker** 
-            - from +3 mult to +6 mult
-        - <code style="color: GreenYellow">(+)</code> **Crazy Joker**, **Droll Joker** 
-            - from +4 mult to +8 mult
-        - <code style="color: GreenYellow">(+)</code> **Half Joker** 
+        - <code style="color: Red">(-)</code> 6 - **Jolly Joker**
+            - from +8 mult to +4 mult
+        - <code style="color: Red">(-)</code> 7 - **Zany Joker** 
+            - from +12 mult to +6 mult
+        - <code style="color: Red">(-)</code> 8 - **Mad Joker**
+            - from +10 mult to +8 mult
+        - <code style="color: Red">(-)</code> 9 - **Crazy Joker**
+            - from +12 mult to +10 mult
+        - <code style="color: GreenYellow">(+)</code> 10 - **Droll Joker** 
+            - from +10 mult to +12 mult
+        <!-- - <code style="color: GreenYellow">(+)</code> 11 - **Sly Joker** 
+            - from +50 chips to +80 chips
+        - <code style="color: GreenYellow">(+)</code> 12 - **Wily Joker**
+            - from +100 chips to +120 chips
+        - <code style="color: GreenYellow">(+)</code> 13 - **Clever Joker** 
+            - from +80 chips to +160 chips
+        - <code style="color: GreenYellow">(+)</code> 14 - **Devious Joker**
+            - from +100 chips to +200 chips
+        - <code style="color: GreenYellow">(+)</code> 15 - **Crafty Joker**
+            - from +80 chips to +200 chips -->
+        - <code style="color: GreenYellow">(+)</code> 16 - **Half Joker** 
             - from "+20 mult if played less than 3 cards" to "+30 mult if played less than 2 cards" 
-        - <code style="color: GreenYellow">(+)</code> **Credit Card** 
+        - <code style="color: GreenYellow">(+)</code> 20 - **Credit Card** 
             - from "20$ debt" to "100$ debt" 
-        - <code style="color: GreenYellow">(+)</code> **Banner** 
+        - <code style="color: GreenYellow">(+)</code> 22 - **Banner** 
             - from "+30 chips" to "+50 chips" 
-        - <code style="color: Red">(-)</code> **Mystic Summit**
+        - <code style="color: Red">(-)</code> 23 - **Mystic Summit**
             - from "+15 mult if 0 discards" to "+10 mult if 0 discards"
-        - <code style="color: Red">(-)</code> **Loyalty Card**
+        - <code style="color: Red">(-)</code> 25 - **Loyalty Card**
             - from "x4 Mult" to "x10 Mult"
-        - <code style="color: GreenYellow">(+)</code> **8 Ball** 
+        - <code style="color: GreenYellow">(+)</code> 26 - **8 Ball** 
             - from "1 in 4 chance" to "1 in 3 chance"
-        - <code style="color: GreenYellow">(+)</code> **Misprint** 
+        - <code style="color: Yellow">(x)</code> 27 - **Misprint** 
             - from "0 - 23 mult" to "1 - 24 mult"
-        - <code style="color: GreenYellow">(+)</code> **Raised Fist** 
+        - <code style="color: GreenYellow">(+)</code> 29 - **Raised Fist** 
             - from double to triple
-        - <code style="color: Yellow">(x)</code> **Chaos the Clown** 
+        - <code style="color: Yellow">(x)</code> 30 - **Chaos the Clown** 
             - from 1 free reroll to 3 free rerolls
             - using all free rerolls destroy this joker
-        - <code style="color: GreenYellow">(+)</code> **Fibonacci** 
+        - <code style="color: GreenYellow">(+)</code> 31 - **Fibonacci** 
             - from +8 Mult to +13 Mult
-        - <code style="color: GreenYellow">(+)</code> **Steel Joker** 
+        - <code style="color: GreenYellow">(+)</code> 32 - **Steel Joker** 
             - from "x0.2 Mult" to "x0.5 Mult
-        - <code style="color: GreenYellow">(+)</code> **Delayed Gratification** 
+        - <code style="color: GreenYellow">(+)</code> 35 - **Delayed Gratification** 
             - from "2$" to "10$"
-        - <code style="color: Red">(-)</code> **Gros Michel**
+        - <code style="color: Red">(-)</code> 38 - **Gros Michel**
             - from "1 in 6 chance" to "1 in 4 chance"
-        - <code style="color: Red">(+)</code> **Scholar**
+        - <code style="color: Red">(+)</code> 41 - **Scholar**
             - from "+20 chips" to "+29 chips"
             - from "+4 Mult" to "+5 Mult"
-        - <code style="color: GreenYellow">(+)</code> **Business Card** 
+        - <code style="color: GreenYellow">(+)</code> 42 - **Business Card** 
             - from "1 in 2 chance" to guaranteed chance to get money
-        - <code style="color: GreenYellow">(+)</code> **Space Joker** 
+        - <code style="color: GreenYellow">(+)</code> 45 - **Space Joker** 
             - from "1 in 4 chance" to "1 in 2 chance"
-        - <code style="color: GreenYellow">(-)</code> **Blackboard** 
+        - <code style="color: Yellow">(x)</code> 48 - **Blackboard** 
             - from x3 Mult to x10 Mult
             - Removed Clubs
         - <code style="color: GreenYellow">(+)</code> 53 - **Blue Joker** 
@@ -120,21 +136,24 @@ I'll will make a SteamModded version of this so it can be easily installed.
         - <code style="color: Yellow">(x)</code> 58 - **Green Joker** 
             - Discarding now resets the gained mult
             - from +1 Mult to +2 Mult
-        - <code style="color: GreenYellow">(+)</code> Madness 
-            - from "gains x0.25" to "gain x0.5" <br>
-        - <code style="color: GreenYellow">(+)</code> Square Joker 
+        - <code style="color: Yellow">(-)</code> 61 - **Cavendish** 
+            - from x3 to x6
+            - from 1 in 1000 to 1 in 500
+        - <code style="color: GreenYellow">(+)</code> 64 - **Madness** 
+            - from "gains x0.5" to "gain x1" <br>
+        - <code style="color: GreenYellow">(+)</code> 65 - **Square Joker** 
             - from "+4" to "+16" <br>
-        - <code style="color: GreenYellow">(+)</code> Riff-Raff 
+        - <code style="color: GreenYellow">(+)</code> 67 - **Riff-Raff** 
             - from "adds 2 jokers" to "adds 3 jokers" <br>
-        - <code style="color: GreenYellow">(+)</code> Vampire 
-            - from "x0.1" to "x0.15 <br>
-        - <code style="color: GreenYellow">(+)</code> Cloud 9 
+        - <code style="color: GreenYellow">(+)</code> 68 - **Vampire** 
+            - from "x0.1" to "x0.15" <br>
+        - <code style="color: GreenYellow">(+)</code> 73 - **Cloud 9** 
             - from "1$" to "2$" <br>
-        - <code style="color: Yellow">(x)</code> Obelisk 
+        - <code style="color: Yellow">(x)</code> 75 - **Obelisk** 
             - removed the reset mechanic <br>
-        - <code style="color: Yellow">(x)</code> Luchador 
+        - <code style="color: Yellow">(x)</code> 77 - **Luchador** 
             - No longer blueprint/brainstorm compatible <br>
-        - <code style="color: GreenYellow">(+)</code> Turtle Bean 
+        - <code style="color: GreenYellow">(+)</code> 80 - **Turtle Bean** 
             - from "+5 hand size, -1 per round" to "+10 hand size, -2 per round" <br>
         - <code style="color: GreenYellow">(+)</code> Spare Trousers 
             - from +4 Mult to +8 Mult <br>
@@ -185,6 +204,17 @@ I'll will make a SteamModded version of this so it can be easily installed.
         - <code style="color: Yellow">(x)</code> Yorick 
             - from "x1 mult every 23 discards" to "x0.5 every 10 discards" <br>
 
+- ## Consumables: (soon)
+    - ### Spectral
+        - Incantation - now changes all the cards to lucky card
+        - Familiar - now changes all the cards to glass card
+        - Grim - now changes all the cards to bonus card
+        - Ouija - no longer gives -1 hand size
+        - Immolate - destroys all cards in hand, gain $40
+        - Aura
+            - Foil now has a 40% chance rather than 50%
+            - Holographic now has a 40% chance rather than 35%
+            - Polychrome now has a 20% chance rather than 15%
 
 - ## Vouchers: 
     - Hieroglyph now gives -1 discard instead of -1 hand
@@ -205,6 +235,14 @@ I'll will make a SteamModded version of this so it can be easily installed.
     - Lucky Card
         - from "1 in 5 chance for +20 Mult" to "1 in 4 chance for +25 Mult"
         - from "1 in 15 chance to win 20$" to "1 in 8 chance to win 25$"
+    
+    - Steel Card
+        - from x1.5 to x1.25
+    
+    - Wheel of Fortune
+        - Foil now has a 45% chance rather than 50%
+        - Holographic now has a 45% chance rather than 35%
+        - Polychrome now has a 10% chance rather than 15%
 
 <!-- - ## Editions: -->
 

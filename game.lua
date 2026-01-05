@@ -1,7 +1,7 @@
 --Class
 Game = Object:extend()
 
-test = false
+require "test"
 
 --Class Methods
 function Game:init()
@@ -1456,8 +1456,8 @@ function Game:start_run(args)
             self.GAME.modifiers.scaling = 3 
         end
         if self.GAME.stake >= 8 then 
-            -- self.GAME.starting_params.discards = self.GAME.starting_params.discards - 1 
-            self.GAME.modifiers.scaling = 4
+            self.GAME.starting_params.discards = self.GAME.starting_params.discards - 1 
+            -- self.GAME.modifiers.scaling = 4
         end
 
         self.GAME.selected_back:apply_to_run()

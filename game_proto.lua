@@ -35,7 +35,13 @@ function Game:init_item_prototypes()
             discovered = false, 
             set = "Seal"
         },
+        -- Green = {
+        --     order = 5,  
+        --     discovered = false, 
+        --     set = "Seal"
+        -- },
     }
+    
     self.P_TAGS = {
         tag_negative = {
             name = 'Negative Tag',     
@@ -376,12 +382,10 @@ function Game:init_item_prototypes()
             name = "Jolly Joker", 
             pos = {x=2,y=0}, 
             set = "Joker", 
-            -- effect = "Type Mult", 
-            -- effect = ""
+            effect = "Type Mult", 
             cost_mult = 1.0,
             config = {
                 t_mult = 4, 
-                -- extra = 2,
                 type = 'Pair'
             }
         },
@@ -419,7 +423,7 @@ function Game:init_item_prototypes()
             effect = "Type Mult", 
             cost_mult = 1.0, 
             config = {
-                t_mult = 4, 
+                t_mult = 8, 
                 type = 'Two Pair'
             }
         },
@@ -438,7 +442,7 @@ function Game:init_item_prototypes()
             effect = "Type Mult", 
             cost_mult = 1.0, 
             config = {
-                t_mult = 8, 
+                t_mult = 10, 
                 type = 'Straight'
             }
         },
@@ -457,7 +461,7 @@ function Game:init_item_prototypes()
             effect = "Type Mult", 
             cost_mult = 1.0, 
             config = {
-                t_mult = 8, 
+                t_mult = 12, 
                 type = 'Flush'
             }
         },
@@ -677,7 +681,7 @@ function Game:init_item_prototypes()
         j_lucky_cat=        {order = 67,   unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 2, cost = 6, name = "Lucky Cat",set = "Joker", config = {Xmult = 1, extra = 0.25}, pos = {x=5,y=14}, enhancement_gate = 'm_lucky'},
         j_egg=              {order = 68,  unlocked = true,  discovered = false, blueprint_compat = false, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 4, name = 'Egg', pos = {x = 0, y = 10}, set = 'Joker', config = {extra = 3}},
         j_bull=             {order = 69,   unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 2, cost = 6, name = "Bull",set = "Joker", config = {extra = 2}, pos = {x=7,y=14}},
-        j_cavendish=        {order = 70,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 1, cost = 4, name = "Cavendish", pos = {x=5,y=11}, set = "Joker", cost_mult = 1.0, config = {extra = {odds = 1000, Xmult = 3}}, yes_pool_flag = 'gros_michel_extinct'},
+        j_cavendish=        {order = 70,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = false, rarity = 1, cost = 4, name = "Cavendish", pos = {x=5,y=11}, set = "Joker", cost_mult = 1.0, config = {extra = {odds = 500, Xmult = 6}}, yes_pool_flag = 'gros_michel_extinct'},
         
         j_ride_the_bus=     {order = 71,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 1, cost = 6, name = "Ride the Bus", pos = {x=1,y=6}, set = "Joker", effect = "", config = {extra = 1}, unlock_condition = {type = 'discard_custom'}},
         j_reserved_parking= {order = 72,  unlocked = true,  discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 1, cost = 6, name = "Reserved Parking",set = "Joker", config = {extra = {odds = 2, dollars = 1}}, pos = {x=6,y=13}},
@@ -790,7 +794,13 @@ function Game:init_item_prototypes()
             perishable_compat = false, 
             eternal_compat = true, 
             rarity = 2, 
-            cost = 7, name = "Madness", pos = {x=8,y=11}, set = "Joker", cost_mult = 1.0, config = {extra = 0.5}},
+            cost = 7, 
+            name = "Madness", 
+            pos = {x=8,y=11}, 
+            set = "Joker", 
+            cost_mult = 1.0, 
+            config = {extra = 1}
+        },
         j_baron=            {order = 98,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 8, name = "Baron",set = "Joker", config = {extra = 1.5}, pos = {x=6,y=12}},
         j_vagabond=         {order = 99,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = true, eternal_compat = true, rarity = 3, cost = 8, name = "Vagabond",set = "Joker", config = {extra = 4}, pos = {x=5,y=12}},
         j_vampire=          {order = 100,  unlocked = true, discovered = false, blueprint_compat = true, perishable_compat = false, eternal_compat = true, rarity = 2, cost = 7, name = "Vampire",set = "Joker", config = {extra = 0.15, Xmult = 1},  pos = {x=2,y=12}},
@@ -837,8 +847,8 @@ function Game:init_item_prototypes()
             unlocked = true,  
             discovered = false, 
             blueprint_compat = false, 
-            perishable_compat = true, 
-            eternal_compat = true, 
+            perishable_compat = false, 
+            eternal_compat = false, 
             rarity = 1, 
             cost = 4, 
             name = "Chaos the Clown", 
@@ -1079,7 +1089,7 @@ function Game:init_item_prototypes()
         m_mult =    {max = 500, order = 3, name = "Mult", set = "Enhanced", pos = {x=2,y=1}, effect = "Mult Card", label = "Mult Card", config = {mult = 4}},
         m_wild =    {max = 500, order = 4, name = "Wild Card", set = "Enhanced", pos = {x=3,y=1}, effect = "Wild Card", label = "Wild Card", config = {}},
         m_glass =   {max = 500, order = 5, name = "Glass Card", set = "Enhanced", pos = {x=5,y=1}, effect = "Glass Card", label = "Glass Card", config = {Xmult = 2, extra = 4}},
-        m_steel =   {max = 500, order = 6, name = "Steel Card", set = "Enhanced", pos = {x=6,y=1}, effect = "Steel Card", label = "Steel Card", config = {h_x_mult = 1.5}},
+        m_steel =   {max = 500, order = 6, name = "Steel Card", set = "Enhanced", pos = {x=6,y=1}, effect = "Steel Card", label = "Steel Card", config = {h_x_mult = 1.25}},
         m_stone =   {max = 500, order = 7, name = "Stone Card", set = "Enhanced", pos = {x=5,y=0}, effect = "Stone Card", label = "Stone Card", config = {bonus = 50}},
         m_gold =    {max = 500, order = 8, name = "Gold Card", set = "Enhanced", pos = {x=6,y=0}, effect = "Gold Card", label = "Gold Card", config = {h_dollars = 3}},
         m_lucky =   {max = 500, order = 9, name = "Lucky Card", set = "Enhanced", pos = {x=4,y=1}, effect = "Lucky Card", label = "Lucky Card", config = {mult=25, p_dollars = 25}},
