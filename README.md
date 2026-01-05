@@ -21,9 +21,18 @@ Bean and Northernlion had those old version/demo videos.
 - ## Blinds:
 
 - ## Jokers: 
-        
+    
+    - <code style="color: Green">(+)</code> [20] Credit Card
+        - from "$20" to "$50"
+
     - <code style="color: Red">(-)</code> [23] Mystic Summit
         - from "+15 Mult" to "+10 Mult"
+
+    - <code style="color: Green">(+)</code> [] Riff-raff
+        - from "2 Common Jokers" to "3 Common Joker"
+    
+    - <code style="color: Green">(+)</code> [] Castle
+        - from "+3 Chips" to "+5 Chips"
         
 - ## Consumables:
 
