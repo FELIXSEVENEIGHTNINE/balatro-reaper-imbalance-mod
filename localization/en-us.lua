@@ -23,7 +23,35 @@ return {
                     "{C:attention}Resets{} when using a discard",
                     "{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)",
                 }
-            }
+            },
+
+            j_shoot_the_moon = {
+                text = {
+                    "Each {C:attention}Queen{}",
+                    "held in hand",
+                    "gives {X:mult,C:white}X#1#{} Mult",
+                }
+            },
+
+            j_flower_pot = {
+                text = {
+                    "{X:mult,C:white} X#1# {} Mult if poker hand",
+                    "is a {C:attention}Four of a Kind{}",
+                    "and contains a",
+                    "{C:diamonds}Diamond{} card, {C:clubs}Club{} card,",
+                    "{C:hearts}Heart{} card, and {C:spades}Spade{} card",
+                }
+            },
+
+            -- j_madness = {
+            --     text = {
+            --         "When {C:attention}Small Blind{} or {C:attention}Big Blind{}",
+            --         "is selected, gain {X:mult,C:white} X#1# {} Mult.",
+            --         "When {C:attention}Boss Blind{} is selected,",
+            --         "{C:attention}destroy{} a random Joker",
+            --         "{C:inactive}(Currently {X:mult,C:white} X#2# {C:inactive} Mult)",
+            --     }
+            -- },
         },
         Voucher = {
             v_hieroglyph = {
