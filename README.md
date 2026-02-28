@@ -82,6 +82,9 @@ Go to your Mods folder and extract the mod there.
 - <code style="color: Green">(+)</code> [42] Business Card
     - from "1 in 2 chance" to guaranteed chance
 
+- <code style="color: Green">(+)</code> [45] Space Joker
+    - from "1 in 4 chance" to "1 in 2 chance"
+
 - <code style="color: Green">(+)</code> [49] Runner
     - from "+15 Chips" to "+40 Chips"
 
@@ -169,7 +172,7 @@ Go to your Mods folder and extract the mod there.
     - d -->
 
 - <code style="color: Yellow">(x)</code> [122] Flower Pot
-    - from "x3" to "x2"
+    - from "x3" to "gains x1"
     - now requires to play Four of a Kind
     - will now scale
     
