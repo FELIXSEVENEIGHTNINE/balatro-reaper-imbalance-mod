@@ -8,6 +8,32 @@ return {
                     "random {C:attention}rank",
                 },
             },
+
+            c_grim = {
+                text = {
+                    "Destroy {C:attention}#1#{} random",
+                    "card in your hand,",
+                    "add {C:attention}#2#{} random {C:attention}Enhanced",
+                    "{C:attention}Aces{} to your hand",
+                }
+            },
+
+            c_incantation = {
+                text = {
+                    "Destroy {C:attention}#1#{} random",
+                    "card in your hand, add {C:attention}#2#",
+                    "random {C:attention}Enhanced numbered",
+                    "{C:attention}cards{} to your hand",
+                }
+            },
+
+            c_hex = {
+                text = {
+                    "Add {C:dark_edition}Polychrome{} to a",
+                    "random {C:attention}Joker{},",
+                    "{C:red}-1{} discard",
+                }
+            },
         },
 
         Joker = {
@@ -64,7 +90,7 @@ return {
                 text = {
                     "Each {C:attention}Queen{}",
                     "held in hand",
-                    "gives {X:mult,C:white}X#1#{} Mult",
+                    "gives {C:red}+#1#{} Mult",
                 }
             },
 
@@ -79,9 +105,32 @@ return {
             -- },
             j_flower_pot = {
                 text = {
-                    "Gains {X:mult,C:white} X#1# {} Mult if poker hand",
-                    "is a {C:attention}Four of a Kind{}",
-                    "{C:inactive}(Currently {X:red,C:white}X#2#{C:inactive} Mult)",
+                    "Gains {C:red}+#1#{} Mult if poker hand",
+                    "contains a {C:attention}Four of a Kind{}",
+                    -- " ",
+                    -- "Gains {C:blue}+#3#{} Chips if hand",
+                    -- "contains a {C:diamonds}Diamond{} card,",
+                    -- "{C:clubs}Club{} card, {C:hearts}Heart{} card, and {C:spades}Spade{} card",   
+                    -- "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult and {C:blue}+#4#{C:inactive} Chips)",  
+                    "{C:inactive}(Currently {C:red}+#2#{C:inactive} Mult)",
+                }
+            },
+
+            j_shortcut = {
+                text = {
+                    "Played {C:attention}Straight{} hands",
+                    "give {C:blue}+#1#{} Chips,",
+                    "{C:red}+#2#{} Mult, and",
+                    "earn {C:money}$#3#{} ",
+                }
+            },
+
+            j_loyalty_card = {
+                text = {
+                    "{C:red}+#1#{} Mult every",
+                    "{C:attention}#2#{} hands played",
+                    "{C:inactive}(#3# remaining)",
+                    "{C:inactive}(Currently {C:red}+#4#{C:inactive} Mult)",
                 }
             },
 
@@ -129,24 +178,42 @@ return {
                     "{X:red,C:white}X#2#{} Mult",
                     "{C:inactive}(Currently {X:red,C:white}X#3#{C:inactive} Mult)",
                 },
-            }
-        },
-        Voucher = {
-            v_hieroglyph = {
-                text = {
-                    "{C:attention}-#1#{} Ante,",
-                    "{C:red}-#1#{} discard",
-                    "each round",
-                }
             },
 
-            v_petroglyph = {
+            -- j_blueprint = {
+            --     text = {
+            --         "Copies ability of",
+            --         "{C:attention}Joker{} to the right",
+            --         "for {C:attention}#1#{} rounds",
+            --         "{C:inactive}(Currently {C:attention}#3#{C:inactive}/#1#)",
+            --     }
+            -- },
+
+            j_smeared = {
                 text = {
-                    "{C:attention}-#1#{} Ante,",
-                    "{C:blue}-#1#{} hand",
-                    "each round",
-                }
-            },
+                    "Retrigger all",
+                    "played {C:attention}Wild{} cards",
+                },
+            }
+
+        },
+
+        Voucher = {
+            -- v_hieroglyph = {
+            --     text = {
+            --         "{C:attention}-#1#{} Ante,",
+            --         "{C:red}-#1#{} discard",
+            --         "each round",
+            --     }
+            -- },
+
+            -- v_petroglyph = {
+            --     text = {
+            --         "{C:attention}-#1#{} Ante,",
+            --         "{C:blue}-#1#{} hand",
+            --         "each round",
+            --     }
+            -- },
 
             v_ri_magic_trick_2 = {
                 name = "Magic Trick",

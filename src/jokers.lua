@@ -14,34 +14,34 @@ SMODS.Joker:take_ownership('wrathful_joker', { order = 4, cost = 3})
 SMODS.Joker:take_ownership('gluttenous_joker', { order = 5, cost = 3})
 
 -- 6 | Jolly Joker
--- SMODS.Joker:take_ownership('jolly', { order = 6, config = { t_mult = 8, type = 'Pair' },})
+SMODS.Joker:take_ownership('jolly', { order = 6, config = { t_mult = 6, type = 'Pair' },})
 
 -- 7 | Zany Joker
 -- SMODS.Joker:take_ownership('zany', { order = 7, config = { t_mult = 12, type = 'Three of a Kind',}})
 
 -- 8 | Mad Joker
--- SMODS.Joker:take_ownership('mad', { order = 8, config = { t_mult = 10, type = 'Two Pair',}})
+SMODS.Joker:take_ownership('mad', { order = 8, config = { t_mult = 8, type = 'Two Pair',}})
 
 -- 9 | Crazy Joker
--- SMODS.Joker:take_ownership('crazy', { order = 9, config = { t_mult = 12, type = 'Straight',}})
+SMODS.Joker:take_ownership('crazy', { order = 9, config = { t_mult = 15, type = 'Straight',}})
 
 -- 10 | Droll Joker
 -- SMODS.Joker:take_ownership ('droll', { order = 10, config = { t_mult = 12, type = 'Flush',}})
 
 -- 11 | Sly Joker
-SMODS.Joker:take_ownership ('sly', { order = 11, cost = 3, config = { t_chips = 50, type = 'Pair',}})
+SMODS.Joker:take_ownership ('sly', { order = 11, cost = 3, config = { t_chips = 60, type = 'Pair',}})
 
 -- 12 | Wily Joker
-SMODS.Joker:take_ownership ('wily', { order = 12, cost = 3, config = { t_chips = 100, type = 'Three of a Kind',}})
+SMODS.Joker:take_ownership ('wily', { order = 12, cost = 3, config = { t_chips = 120, type = 'Three of a Kind',}})
 
 -- 13 | Clever Joker
 SMODS.Joker:take_ownership ('clever', { order = 13, cost = 3, config = { t_chips = 80, type = 'Two Pair', }})
 
 -- 14 | Devious Joker
-SMODS.Joker:take_ownership ('devious', { order = 14, cost = 3, config = { t_chips = 100, type = 'Straight',}})
+SMODS.Joker:take_ownership ('devious', { order = 14, cost = 3, config = { t_chips = 150, type = 'Straight',}})
 
 -- 15 | Crafty Joker
-SMODS.Joker:take_ownership ('crafty', { order = 15, cost = 3, config = { t_chips = 80, type = 'Flush',}})
+SMODS.Joker:take_ownership ('crafty', { order = 15, cost = 3, config = { t_chips = 100, type = 'Flush',}})
 
 -- 16 | Half Joker
 -- SMODS.Joker:take_ownership ('half', { order = 16, config = { extra = { mult = 15, size = 3, }},})
@@ -98,78 +98,78 @@ SMODS.Joker:take_ownership (
 -- SMODS.Joker:take_ownership ('four_fingers', { order = 18, })
 
 -- 19 | Mime
--- SMODS.Joker:take_ownership ('mime', { order = 19, config = { extra = 1, }})
+SMODS.Joker:take_ownership ('mime', { order = 19, rarity = 3, config = { extra = 1,}})
 
 -- 20 | Credit Card
 -- SMODS.Joker:take_ownership ('credit_card', { order = 20, config = {extra = 20,},})
 
 -- 21 | Ceremonial Dagger
-SMODS.Joker:take_ownership (
-    'ceremonial', 
-    {
-        order = 21, 
-        config = { 
-            Xmult = 1,
-            extra = 25,
-        },
+-- SMODS.Joker:take_ownership (
+--     'ceremonial', 
+--     {
+--         order = 21, 
+--         config = { 
+--             Xmult = 1,
+--             extra = 25,
+--         },
 
-        loc_vars = function(self, info_queue, card)
-            return {
-                vars = { 
-                    card.ability.Xmult,
-                    card.ability.extra,
-                }
-            }
-        end,
+--         loc_vars = function(self, info_queue, card)
+--             return {
+--                 vars = { 
+--                     card.ability.Xmult,
+--                     card.ability.extra,
+--                 }
+--             }
+--         end,
 
-        calculate = function(self, card, context)
-            if context.setting_blind and not context.blueprint then
-                if card.ability.Xmult < card.ability.extra then
-                    local my_pos = nil
-                    for i = 1, #G.jokers.cards do
-                        if G.jokers.cards[i] == card then
-                            my_pos = i
-                            break
-                        end
-                    end
-                    if my_pos and G.jokers.cards[my_pos + 1] and not SMODS.is_eternal(G.jokers.cards[my_pos + 1], card) and not G.jokers.cards[my_pos + 1].getting_sliced then
-                        local sliced_card = G.jokers.cards[my_pos + 1]
-                        sliced_card.getting_sliced = true -- Make sure to do this on destruction effects
-                        G.GAME.joker_buffer = G.GAME.joker_buffer - 1
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                G.GAME.joker_buffer = 0
-                                -- See note about SMODS Scaling Manipulation on the wiki
-                                card.ability.Xmult = card.ability.Xmult + sliced_card.sell_cost
-                                card:juice_up(0.8, 0.8)
-                                sliced_card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
-                                play_sound('slice1', 0.96 + math.random() * 0.08)
-                                return true
-                            end
-                        }))
+--         calculate = function(self, card, context)
+--             if context.setting_blind and not context.blueprint then
+--                 if card.ability.Xmult < card.ability.extra then
+--                     local my_pos = nil
+--                     for i = 1, #G.jokers.cards do
+--                         if G.jokers.cards[i] == card then
+--                             my_pos = i
+--                             break
+--                         end
+--                     end
+--                     if my_pos and G.jokers.cards[my_pos + 1] and not SMODS.is_eternal(G.jokers.cards[my_pos + 1], card) and not G.jokers.cards[my_pos + 1].getting_sliced then
+--                         local sliced_card = G.jokers.cards[my_pos + 1]
+--                         sliced_card.getting_sliced = true -- Make sure to do this on destruction effects
+--                         G.GAME.joker_buffer = G.GAME.joker_buffer - 1
+--                         G.E_MANAGER:add_event(Event({
+--                             func = function()
+--                                 G.GAME.joker_buffer = 0
+--                                 -- See note about SMODS Scaling Manipulation on the wiki
+--                                 card.ability.Xmult = card.ability.Xmult + sliced_card.sell_cost
+--                                 card:juice_up(0.8, 0.8)
+--                                 sliced_card:start_dissolve({ HEX("57ecab") }, nil, 1.6)
+--                                 play_sound('slice1', 0.96 + math.random() * 0.08)
+--                                 return true
+--                             end
+--                         }))
 
-                        local total_mult = card.ability.Xmult + sliced_card.sell_cost
-                        if total_mult > card.ability.extra then
-                            total_mult = (total_mult - card.ability.extra)
-                        end
+--                         local total_mult = card.ability.Xmult + sliced_card.sell_cost
+--                         if total_mult > card.ability.extra then
+--                             total_mult = (total_mult - card.ability.extra)
+--                         end
 
-                        return {
-                            message = localize { type = 'variable', key = 'a_xmult', vars = { total_mult } },
-                            colour = G.C.RED,
-                            no_juice = true
-                        }
-                    end
-                end
-            end
+--                         return {
+--                             message = localize { type = 'variable', key = 'a_xmult', vars = { total_mult } },
+--                             colour = G.C.RED,
+--                             no_juice = true
+--                         }
+--                     end
+--                 end
+--             end
 
-            if context.joker_main then
-                return {
-                    Xmult = card.ability.Xmult
-                }
-            end
-        end
-    }
-)
+--             if context.joker_main then
+--                 return {
+--                     Xmult = card.ability.Xmult
+--                 }
+--             end
+--         end
+--     }
+-- )
 
 -- 22 | Banner
 -- SMODS.Joker:take_ownership ('banner', { order = 22, config = {extra = 30},})
@@ -226,7 +226,50 @@ SMODS.Joker:take_ownership('marble', {
 }) 
 
 -- 25 | Loyalty Card
--- SMODS.Joker:take_ownership ('loyalty_card', { order = 25, config = { extra = { Xmult = 4, every = 5, remaining = "5 remaining" },},})
+SMODS.Joker:take_ownership('loyalty_card', { 
+    order = 25, 
+    config = { 
+        extra = { 
+            add_mult = 4, 
+            current = 0,
+            every = 3, 
+            remaining = 3,
+        },
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                card.ability.extra.add_mult,
+                card.ability.extra.every + 1,
+                card.ability.extra.remaining,
+                card.ability.extra.current,
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main then
+            card.ability.extra.remaining = card.ability.extra.remaining - 1
+
+            if not context.blueprint then
+                if card.ability.extra.remaining == 0 then
+                    card.ability.extra.current = card.ability.extra.current + card.ability.extra.add_mult
+                    card.ability.extra.remaining = card.ability.extra.every
+
+                    return {
+                        message = localize('k_upgrade_ex'),
+                        colour = G.C.MULT,
+                    }
+                end
+            end
+
+            return {
+                mult = card.ability.extra.current
+            }
+        end
+    end
+})
 
 -- 26 | 8 Ball
 SMODS.Joker:take_ownership ('8_ball', {order = 26, rarity = 2, config = {extra = 2},})
@@ -285,7 +328,7 @@ SMODS.Joker:take_ownership ('8_ball', {order = 26, rarity = 2, config = {extra =
 -- SMODS.Joker:take_ownership ('scary_face', {order = 33,config = {extra = 30},})
 
 -- 34 | Abstract
-SMODS.Joker:take_ownership('abstract', {order = 34,config = {extra = 4},})
+-- SMODS.Joker:take_ownership('abstract', {order = 34,config = {extra = 4},})
 
 -- 35 | Delayed Gratification
 -- SMODS.Joker:take_ownership ('delayed_grat', {order = 35,config = {extra = 2},})
@@ -293,7 +336,7 @@ SMODS.Joker:take_ownership('abstract', {order = 34,config = {extra = 4},})
 -- 36 | Hack
 -- SMODS.Joker:take_ownership ('hack', {order = 36,config = {extra = 1},})
 
--- 37 | Delayed Gratification
+-- 37 | Pareidolia
 -- SMODS.Joker:take_ownership('pareidolia', {order = 37,config = {},})
 
 -- 38 | Gros Michel
@@ -321,7 +364,7 @@ SMODS.Joker:take_ownership ('business', { order = 42, config = { extra = 1 },})
 SMODS.Joker:take_ownership('space', { order = 45, config = { extra = 2 },})
 
 -- 49 | Runner
-SMODS.Joker:take_ownership('runner', { order = 49, config = { extra = { chips = 0, chip_mod = 60,}},})
+SMODS.Joker:take_ownership('runner', { order = 49, config = { extra = { chips = 0, chip_mod = 40,}},})
 
 -- 50 | Ice Cream
 -- SMODS.Joker:take_ownership ('ice_cream', { order = 50, config = { extra = { chips = 100, chip_mod = 5,}},})
@@ -347,16 +390,16 @@ SMODS.Joker:take_ownership('runner', { order = 49, config = { extra = { chips = 
 -- SMODS.Joker:take_ownership('sixth_sense', {order = 54,config = {},})
 
 -- 55 | Constellation
-SMODS.Joker:take_ownership (
-    'constellation', 
-    {
-        order = 55,
-        config = {
-            extra = 0.2,
-            Xmult = 1,
-        },
-    }
-)
+-- SMODS.Joker:take_ownership (
+--     'constellation', 
+--     {
+--         order = 55,
+--         config = {
+--             extra = 0.2,
+--             Xmult = 1,
+--         },
+--     }
+-- )
 
 -- 56 | Hiker
 -- SMODS.Joker:take_ownership('hiker', {order = 56,config = {extra = 5,},})
@@ -420,13 +463,13 @@ SMODS.Joker:take_ownership (
 
 -- 64 | Madness
 -- THIS JOKER IS FUCKING CURSED BECAUSE ITS HARD CODED
-SMODS.Joker:take_ownership (
-    'madness', 
-    {
-        order = 64,
-        config = {
-            extra = 1
-        },
+-- SMODS.Joker:take_ownership (
+--     'madness', 
+--     {
+--         order = 64,
+--         config = {
+--             extra = 1
+--         },
 
         -- calculate = function(self, card, context)
         --     if not context.setting_blind then
@@ -471,8 +514,8 @@ SMODS.Joker:take_ownership (
         --         }
         --     end
         -- end,
-    }
-)
+--     }
+-- )
 
 -- 65 | Square Joker
 SMODS.Joker:take_ownership (
@@ -576,7 +619,51 @@ SMODS.Joker:take_ownership (
 -- SMODS.Joker:take_ownership ('vampire', { order = 68, config = { extra = 0.1, Xmult = 1,},})
 
 -- 69 | Shortcut
--- SMODS.Joker:take_ownership ('shortcut', { order = 69, config = {},})
+SMODS.Joker:take_ownership('shortcut', {
+    config = {
+        extra = {
+            dollars = 5,
+            chips = 31,
+            mult = 10,
+        },
+    },
+
+    loc_vars = function(self, info_queue, card)
+        return { 
+            vars = { 
+                card.ability.extra.chips,
+                card.ability.extra.mult,
+                card.ability.extra.dollars
+            }
+        }
+    end,
+
+    calculate = function(self, card, context)
+        if context.joker_main and next(context.poker_hands["Straight"]) then
+            return {
+                chips = card.ability.extra.chips,
+                mult = card.ability.extra.mult
+            }
+        end
+
+        if context.before and context.scoring_name == "Straight" then
+            G.GAME.dollar_buffer = (G.GAME.dollar_buffer or 0) + card.ability.extra.dollars
+
+            return {
+                dollars = card.ability.extra.dollars,
+                func = function() -- This is for timing purposes, it runs after the dollar manipulation
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            G.GAME.dollar_buffer = 0
+                            return true
+                        end
+                    }))
+                end
+            }
+        end
+
+    end,
+})
 
 -- 70 | Hologram
 -- SMODS.Joker:take_ownership ('hologram', { order = 70, config = {extra = 0.25, Xmult = 1},})
@@ -594,7 +681,7 @@ SMODS.Joker:take_ownership ('cloud_9', { order = 73, config = {extra = 2},})
 -- SMODS.Joker:take_ownership ('rocket', { order = 74, config = {extra = { dollars = 1, increase = 2}},})
 
 -- 75 | Obelisk
-SMODS.Joker:take_ownership ('obelisk', { order = 75, config = { extra = 1, Xmult = 1,},})
+-- SMODS.Joker:take_ownership ('obelisk', { order = 75, config = { extra = 1, Xmult = 1,},})
 
 -- 76 | Midas Mask
 -- SMODS.Joker:take_ownership ('midas_mask', { order = 76, })
@@ -603,7 +690,7 @@ SMODS.Joker:take_ownership ('obelisk', { order = 75, config = { extra = 1, Xmult
 -- SMODS.Joker:take_ownership ('luchador', { order = 77, })
 
 -- 78 | Photograph
--- SMODS.Joker:take_ownership ('photograph', { order = 78, })
+SMODS.Joker:take_ownership ('photograph', {rarity = 2, config = { extra = 1.5 },})
 
 -- 79 | Gift Card
 -- SMODS.Joker:take_ownership ('gift', { order = 79, })
@@ -688,8 +775,9 @@ SMODS.Joker:take_ownership (
     'campfire', 
     {
         order = 105,
+        rarity = 2,
         config = {
-            extra = 0.25
+            extra = 0.2
         },
         loc_vars = function(self, info_queue, card)
             return { 
@@ -736,19 +824,31 @@ SMODS.Joker:take_ownership (
 -- SMODS.Joker:take_ownership ('swashbuckler', {})
 
 -- 111 | Troubadour
-SMODS.Joker:take_ownership ('troubadour', {config = {extra = {h_size = 4, h_plays = -1}} })
+-- SMODS.Joker:take_ownership ('troubadour', {config = {extra = {h_size = 4, h_plays = -1}} })
 
 -- 112 | Certificate
 -- SMODS.Joker:take_ownership ('certificate', {})
 
 -- 113 | Smeared Joker
--- SMODS.Joker:take_ownership ('smeared', {})
+SMODS.Joker:take_ownership ('smeared', {
+    config = {
+        extra = 1,
+    },
+
+    calculate = function(self, card, context)
+        if context.repetition and context.cardarea == G.play and context.other_card and context.other_card.config.center.key == "m_wild" then
+            return {
+                repetitions = card.ability.extra
+            }
+        end
+    end,
+})
 
 -- 114 | Throwback
 -- SMODS.Joker:take_ownership ('throwback', {})
 
 -- 115 | Hanging Chad
--- SMODS.Joker:take_ownership ('hanging_chad', {})
+SMODS.Joker:take_ownership ('hanging_chad', { rarity = 2,})
 
 -- 116 | Rough Gem
 SMODS.Joker:take_ownership ('rough_gem', { order = 116, rarity = 3, config = { extra = 3 },})
@@ -776,31 +876,37 @@ SMODS.Joker:take_ownership (
         config = {
             extra = {
                 current_mult = 0,
-                add_mult = 12
+                add_mult = 12,
+                current_chip = 0,
+                add_chip = 60,
             }
         },
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.extra,
-                    card.ability.xmult
+                    card.ability.extra.add_mult,
+                    card.ability.extra.current_mult,
+                    card.ability.extra.add_chip,
+                    card.ability.extra.current_chip,
                 }
             }
         end,
 
         calculate = function(self, card, context)
-
-            if context.before and next(context.poker_hands['Four of a Kind']) and not context.blueprint then
-                card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.add_mult
-                return {
-                    message = localize('k_upgrade_ex'),
-                    colour = G.C.MULT,
-                }
+            if context.before then
+                if next(context.poker_hands['Four of a Kind']) and not context.blueprint then
+                    card.ability.extra.current_mult = card.ability.extra.current_mult + card.ability.extra.add_mult
+                    return {
+                        message = localize('k_upgrade_ex'),
+                        colour = G.C.MULT,
+                    }
+                end
             end
 
             if context.joker_main then
                 return {
-                    mult = card.ability.extra.current_mult
+                    mult = card.ability.extra.current_mult,
+                    chip = card.ability.extra.current_chip
                 }
             end
 
@@ -809,7 +915,77 @@ SMODS.Joker:take_ownership (
 )
 
 -- 123 | Blueprint
--- SMODS.Joker:take_ownership ('blueprint', {})
+-- SMODS.Joker:take_ownership('blueprint', {
+--     config = {
+--         extra = {
+--             rounds = 3,
+--             rounds_current = 3,
+--             rounds_mod = 1,
+--         }
+--     },
+
+--     loc_vars = function(self, info_queue, card)
+--         if card.area and card.area == G.jokers then
+--             local other_joker
+--             for i = 1, #G.jokers.cards do
+--                 if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] end
+--             end
+--             local compatible = other_joker and other_joker ~= card and other_joker.config.center.blueprint_compat
+--             local main_end = {
+--                 {
+--                     n = G.UIT.C,
+--                     config = { align = "bm", minh = 0.4 },
+--                     nodes = {
+--                         {
+--                             n = G.UIT.C,
+--                             config = { ref_table = card, align = "m", colour = compatible and mix_colours(G.C.GREEN, G.C.JOKER_GREY, 0.8) or mix_colours(G.C.RED, G.C.JOKER_GREY, 0.8), r = 0.05, padding = 0.06 },
+--                             nodes = {
+--                                 { n = G.UIT.T, config = { text = ' ' .. localize('k_' .. (compatible and 'compatible' or 'incompatible')) .. ' ', colour = G.C.UI.TEXT_LIGHT, scale = 0.32 * 0.8 } },
+--                             }
+--                         }
+--                     }
+--                 }
+--             }
+--             return {
+--                 vars = {
+--                     card.ability.extra.rounds, 
+--                     card.ability.extra.rounds_mod, 
+--                     card.ability.extra.rounds_current
+--                 }, 
+--                 main_end = main_end 
+--             }
+--         end
+--     end,
+--     calculate = function(self, card, context)
+--         local other_joker = nil
+--         for i = 1, #G.jokers.cards do
+--             if G.jokers.cards[i] == card then other_joker = G.jokers.cards[i + 1] end
+--         end
+--         local ret = SMODS.blueprint_effect(card, other_joker, context)
+--         if ret then
+--             ret.colour = G.C.BLUE
+--         end
+
+--         if context.end_of_round and context.game_over == false and context.main_eval and not context.blueprint then
+--             if card.ability.extra.rounds_current <= 0 then
+--                 SMODS.destroy_cards(card, nil, nil, true)
+--                 return {
+--                     message = localize('k_eaten_ex'),
+--                     colour = G.C.FILTER
+--                 }
+--             else
+--                 -- See note about SMODS Scaling Manipulation on the wiki
+--                 card.ability.extra.round_current = card.ability.extra.round_current - card.ability.extra.round_mod
+--                 return {
+--                     message = localize { type = 'variable', key = 'a_handsize_minus', vars = { card.ability.extra.round_mod } },
+--                     colour = G.C.FILTER
+--                 }
+--             end
+--         end
+
+--         return ret
+--     end,
+-- })
 
 -- 124 | Wee Joker
 -- SMODS.Joker:take_ownership ('wee', {})
@@ -913,6 +1089,38 @@ SMODS.Joker:take_ownership (
 )
 
 -- 138 | Brainstorm
+-- SMODS.Joker:take_ownership('brainstorm', {no_collection = true, in_pool = function() return false end})
+-- SMODS.Joker:take_ownership('brainstorm', {
+--     loc_vars = function(self, info_queue, card)
+--         if card.area and card.area == G.jokers then
+--             local compatible = G.jokers.cards[1] and G.jokers.cards[1] ~= card and
+--                 G.jokers.cards[1].config.center.blueprint_compat
+--             local main_end = {
+--                 {
+--                     n = G.UIT.C,
+--                     config = { align = "bm", minh = 0.4 },
+--                     nodes = {
+--                         {
+--                             n = G.UIT.C,
+--                             config = { ref_table = card, align = "m", colour = compatible and mix_colours(G.C.GREEN, G.C.JOKER_GREY, 0.8) or mix_colours(G.C.RED, G.C.JOKER_GREY, 0.8), r = 0.05, padding = 0.06 },
+--                             nodes = {
+--                                 { n = G.UIT.T, config = { text = ' ' .. localize('k_' .. (compatible and 'compatible' or 'incompatible')) .. ' ', colour = G.C.UI.TEXT_LIGHT, scale = 0.32 * 0.8 } },
+--                             }
+--                         }
+--                     }
+--                 }
+--             }
+--             return { main_end = main_end }
+--         end
+--     end,
+--     calculate = function(self, card, context)
+--         local ret = SMODS.blueprint_effect(card, G.jokers.cards[1], context)
+--         if ret then
+--             ret.colour = G.C.RED
+--         end
+--         return ret
+--     end,
+-- })
 
 -- 139 | Satellite
 SMODS.Joker:take_ownership ('satellite', { order = 139, config = { extra = 3 },})

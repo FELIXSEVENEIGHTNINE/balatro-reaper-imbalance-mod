@@ -14,4 +14,6 @@ assert(SMODS.load_file("src/decks.lua"))()
 -- assert(SMODS.load_file("challenge_flush_five.lua"))()
 
 -- Test - A shit ton of cash, disable when uploading to github
-assert(SMODS.load_file("test/test.lua"))()
+-- assert(SMODS.load_file("test/test.lua"))()
+
+-- assert(SMODS.load_file("src/customjokers.lua"))()
