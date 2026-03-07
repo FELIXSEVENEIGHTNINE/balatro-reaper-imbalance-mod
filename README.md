@@ -61,12 +61,4 @@ Go to your Mods folder and extract the mod there.
 | Voucher | Magic Trick | Playing card can be found in the shop | +1 Booster slot | | |
 | Voucher | Illusion | Magic Trick but with random enhancement, edition, and/or seal | +1 Voucher slot | | |
 
-<b>It's not just Jokers that got changed!</b>
-
-- Chariot now allow 2 cards to be selected
-- Lovers now allow 3 cards to be selected
-- Tower now allows 2 cards to be selected
-- Hieroglyph now gives -1 discard instead of -1 hand 
-- Petroglyph now gives -1 hand instead of -1 discard
-- Green Deck now gives $3 for each unused discard.
 
